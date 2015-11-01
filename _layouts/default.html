@@ -1,51 +1,107 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>{% if page.title %}{{ page.title }} – {% endif %}{{ site.name }} – {{ site.description }}</title>
 
-    {% include meta.html %}
-
-    <!--[if lt IE 9]>
+<head>
+ <title>{{ site.name }} / {% if page.title %}{{ page.title }}{% endif %}</title>
+ {% include meta.html %}
+ <!--[if lt IE 9]>
       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+ <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+ <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/theme.css" />
+ <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/custom.css" />
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+ <script src="{{ site.baseurl }}/bower_components/typed.js/js/typed.js"></script>
+ <script>
+ $(function() {
+  $(".page-date").typed({
+   strings: ["{{ page.date | date:"%Y"}} /"],
+   typeSpeed: 0
+  });
+ });
+ $(function() {
+  $(".page-tag").typed({
+   strings: ["{{ page.tag }} /"],
+   typeSpeed: 0
+  });
+ });
+ $(function() {
+  $(".page-title").typed({
+   strings: ["{{ page.title }}"],
+   typeSpeed: 0
+  });
+ });
+ </script>
+ <!-- <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css" /> -->
+ <link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml" />
+ <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+</head>
 
-    <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css" />
-    <link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml" />
-
-    <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
-  </head>
-
-  <body>
-    <div class="wrapper-masthead">
-      <div class="container">
-        <header class="masthead clearfix">
-          <a href="{{ site.baseurl }}/" class="site-avatar"><img src="{{ site.avatar }}" /></a>
-
-          <div class="site-info">
-            <h1 class="site-name"><a href="{{ site.baseurl }}/">{{ site.name }}</a></h1>
-            <p class="site-description">{{ site.description }}</p>
-          </div>
-
-          <nav>
-            <a href="{{ site.baseurl }}/">Blog</a>
-            <a href="{{ site.baseurl }}/about">About</a>
-          </nav>
-        </header>
-      </div>
+<body>
+ <nav class="navbar navbar-default navbar-static-top">
+  <div class="container" style="vertical-align: bottom;">
+   <!-- Brand and toggle get grouped for better mobile display -->
+   <div class="navbar-header">
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+     <span class="sr-only">Toggle navigation</span>
+     <span class="icon-bar"></span>
+     <span class="icon-bar"></span>
+     <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="{{ site.baseurl }}/"><span class="glyphicon glyphicon-console" aria-hidden="true"></span></a>
+   </div>
+   <!-- Collect the nav links, forms, and other content for toggling -->
+   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav">{% for page in site.pages %} {% if page.menu %}
+     <li><a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></li> {% endif %} {% endfor %}
+     <li class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">projekt <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+       {% for post in site.posts %}
+       <li><a href="{{ post.url | prepend:site.baseurl }}">{{ post.date | date:"%Y"}} / {{ post.tag }} / {{ post.title }} </a></li>
+       {% endfor %}
+      </ul>
+     </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+     <li class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@</a>
+      <ul class="dropdown-menu">
+       <li><a href="#">twitter</a></li>
+       <li><a href="#">linkedin</a></li>
+       <li><a href="#">github</a></li>
+       <li><a href="#">foursquare</a></li>
+       <li role="separator" class="divider"></li>
+       <li><a href="#">maila</a></li>
+      </ul>
+     </li>
+    </ul>
+   </div>
+   <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container-fluid -->
+ </nav>
+ <div class="wrapper-masthead">
+  <div class="container">
+   <header class="masthead clearfix">
+    <div class="site-info">
+     <span class="lead">{% if page.date %} <span class="page-date"></span> {% endif %}{% if page.tag %} <span class="page-tag"></span> {% endif %} {% if page.title %} <span class="page-title"></span>{% endif %}<span class="typed-cursor">|</span></span>
     </div>
+   </header>
+  </div>
+ </div>
+ <div id="main" role="main" class="container">
+  {{ content }}
+ </div>
+ <div class="wrapper-footer">
+  <div class="container">
+   <footer class="footer">
+    {% include svg-icons.html %}
+   </footer>
+  </div>
+ </div>
+ {% include analytics.html %}
+</body>
 
-    <div id="main" role="main" class="container">
-      {{ content }}
-    </div>
-
-    <div class="wrapper-footer">
-      <div class="container">
-        <footer class="footer">
-          {% include svg-icons.html %}
-        </footer>
-      </div>
-    </div>
-
-    {% include analytics.html %}
-  </body>
 </html>

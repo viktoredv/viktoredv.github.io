@@ -1,5 +1,6 @@
 ---
 layout: default
+title: viktoredv.github.io
 ---
 
 <div class="posts">
@@ -8,11 +9,10 @@ layout: default
 
       <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
 
-      <div class="entry">
-        {{ post.excerpt }}
+      <div class="row">
+        <div class="col-xs-12">{{ post.content }}</div>
       </div>
 
-      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
     </article>
   {% endfor %}
 </div>
