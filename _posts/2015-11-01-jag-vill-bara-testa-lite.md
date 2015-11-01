@@ -1,5 +1,5 @@
 ---
-published: false
+layout: post
 ---
 
 ## Jag vill bara testa lite
