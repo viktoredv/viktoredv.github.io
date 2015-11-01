@@ -1,7 +1,7 @@
 ---
 layout: post
 title: lorem ipsum dolor sit amet
-tag: test
+tag: dolor
 ---
 
 In recusandae ab, praesentium, ex adipisci voluptatibus reiciendis sapiente, vel magni impedit repellat?

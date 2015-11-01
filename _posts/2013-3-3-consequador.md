@@ -1,7 +1,7 @@
 ---
 layout: post
 title: consectetur adipisicing elit
-tag: test
+tag: lorem
 ---
 
 :+1: Aperiam enim adipisci placeat, blanditiis, perspiciatis aliquid harum culpa. In recusandae ab, praesentium, ex adipisci voluptatibus reiciendis sapiente, vel magni impedit repellat?
