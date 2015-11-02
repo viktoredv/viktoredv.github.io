@@ -82,16 +82,10 @@
   </div>
   <!-- /.container-fluid -->
  </nav>
- <div class="wrapper-masthead">
-  <div class="container">
-   <header class="masthead clearfix">
-    <div class="site-info">
-     <span class="lead">{% if page.date %} <span class="page-date"></span> {% endif %}{% if page.tag %} <span class="page-tag"></span> {% endif %} {% if page.title %} <span class="page-title"></span>{% endif %}<span class="typed-cursor">|</span></span>
-    </div>
-   </header>
-  </div>
- </div>
  <div id="main" role="main" class="container">
+  <header class="masthead clearfix">
+     <span class="lead">{% if page.date %} <span class="page-date"></span> {% endif %}{% if page.tag %} <span class="page-tag"></span> {% endif %} {% if page.title %} <span class="page-title"></span>{% endif %}<span class="typed-cursor">|</span></span>
+   </header>
   {{ content }}
  </div>
  <div class="wrapper-footer">
