@@ -1,3 +1,10 @@
+---
+---
+
+body {
+    padding-top: 100px;
+}
+
 .typed-cursor {
     animation-duration: 1s;
     animation-name: blink;
@@ -18,5 +25,37 @@
     100% {
         opacity: 0;
     }
+}
+
+h3, .h3 {
+    margin-top: 10.5px;
+}
+
+.dots {
+    background-image:url({{ site.baseurl }}/images/dots.png);
+}
+
+.separator {
+    display: block;
+    height: 40px;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+pre {
+    font-family: "Futura", "Century Gothic";
+    background-image:url({{ site.baseurl }}/images/dots.png);
+    border: 0;
+    border-left: 4px solid #000000;
+    padding: 40px 20px;
+    border-radius: 0px;
+    color:#FFFFFF;
+}
+
+code.language-text {
+    font-family: "Futura", "Century Gothic";
+    background-color:#000000;
+    font-size: 20px;
 }
 

@@ -4,12 +4,13 @@ title: viktoredv.github.io
 ---
 
 {% for post in site.posts %}
-  <article class="post">
+   <div class="separator dots"></div>
 
-    <h3><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
+	  <article class="post">
 
-  {{ post.content }}
+	    <h3><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
 
-  </article>
-  <p class="h3">&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;</p>
+	  {{ post.content }}
+
+	  </article>
 {% endfor %}
